@@ -1,1 +1,1 @@
-console.error("SyntaxError: /Users/homeBase1/TIY/assignments/assignment-25-backend-collaboration/src-client/scripts/app.js: Unexpected token, expected , (12:6) while parsing file: /Users/homeBase1/TIY/assignments/assignment-25-backend-collaboration/src-client/scripts/app.js");
+console.error("SyntaxError: /Users/homeBase1/TIY/assignments/assignment-25-backend-collaboration/src-client/scripts/app.js: Unexpected token, expected , (13:6) while parsing file: /Users/homeBase1/TIY/assignments/assignment-25-backend-collaboration/src-client/scripts/app.js");

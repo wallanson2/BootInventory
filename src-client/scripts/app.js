@@ -1,6 +1,7 @@
 const ReactDOM = require('react-dom');
 const React = require('react')
 const Backbone = require('backbone');
+
 const DashboardView = require('./multi-view.js')
 
 
@@ -35,4 +36,9 @@ const AppRouter = Backbone.Router.extend({
   }
 
 })
+
+
+
+
+
 new AppRouter()
