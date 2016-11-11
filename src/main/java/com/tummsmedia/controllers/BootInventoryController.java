@@ -72,12 +72,12 @@ public class BootInventoryController {
     @RequestMapping(path = "/user", method = RequestMethod.GET)
     public User getUser(HttpSession session) {
         String username = (String) session.getAttribute("username");
-        return users.findFirstByName(username);
+        return users.findFirstByUsername(username);
     }
 
     @RequestMapping(path = "/user", method = RequestMethod.POST)
     public ResponseEntity postUser(HttpSession session, @RequestBody User user) throws com.tummsmedia.utilities.PasswordStorage.InvalidHashException, com.tummsmedia.utilities.PasswordStorage.CannotPerformOperationException {
-        User userFromDb = users.findFirstByName(user.getUsername());
+        User userFromDb = users.findFirstByUsername(user.getUsername());
         if (userFromDb == null) {
             user.setUsername(user.getUsername());
             user.setPassword(com.tummsmedia.utilities.PasswordStorage.createHash(user.getPassword()));
@@ -95,8 +95,8 @@ public class BootInventoryController {
 
     @RequestMapping(path = "/all-boots", method = RequestMethod.GET)
     public ResponseEntity<Iterable<Boot>> getAllBoots(HttpSession session, @RequestBody Boot boot) throws Exception {
-        String name = (String) session.getAttribute("username");
-        User user = users.findFirstByName(name);
+        String username = (String) session.getAttribute("username");
+        User user = users.findFirstByUsername(username);
         if (user == null) {
             return new ResponseEntity<Iterable<Boot>>(HttpStatus.FORBIDDEN);
         }
@@ -106,7 +106,7 @@ public class BootInventoryController {
     @RequestMapping(path = "/get-boot", method = RequestMethod.GET)
     public ResponseEntity<Boot> getBoot(HttpSession session, @RequestBody Boot boot) throws Exception {
         String name = (String) session.getAttribute("username");
-        User user = users.findFirstByName(name);
+        User user = users.findFirstByUsername(name);
         if (user == null) {
             return new ResponseEntity<Boot>(HttpStatus.FORBIDDEN);
         }

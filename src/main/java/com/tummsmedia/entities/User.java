@@ -15,11 +15,11 @@ public class User {
     @GeneratedValue
     int id;
 
-    @Column
+    @Column(nullable = false)
     String username;
 
     @JsonIgnore
-    @Column
+    @Column(nullable = false)
     String password;
 
     public User() {
