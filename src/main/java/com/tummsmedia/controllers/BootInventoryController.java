@@ -76,7 +76,7 @@ public class BootInventoryController {
     }
 
     @RequestMapping(path = "/user", method = RequestMethod.POST)
-    public ResponseEntity postUser(HttpSession session, @RequestBody User user) throws com.tummsmedia.utilities.PasswordStorage.InvalidHashException, com.tummsmedia.utilities.PasswordStorage.CannotPerformOperationException {
+    public ResponseEntity<String> postUser(HttpSession session, @RequestBody User user) throws com.tummsmedia.utilities.PasswordStorage.InvalidHashException, com.tummsmedia.utilities.PasswordStorage.CannotPerformOperationException {
         User userFromDb = users.findFirstByUsername(user.getUsername());
         if (userFromDb == null) {
             user.setUsername(user.getUsername());
@@ -90,7 +90,7 @@ public class BootInventoryController {
         session.setAttribute("name", user.getUsername());
         String retJson = String.format("{\"id\" : \" %s \" , \"name\" : \"%s\"}", user.getId(), user.getUsername());
         System.out.println(retJson);
-        return new ResponseEntity<>(retJson, HttpStatus.OK);
+        return new ResponseEntity<String>(retJson, HttpStatus.OK);
     }
 
     @RequestMapping(path = "/all-boots", method = RequestMethod.GET)
