@@ -18,7 +18,7 @@ public class User {
     @Column(nullable = false)
     String username;
 
-    @JsonIgnore
+//    @JsonIgnore
     @Column(nullable = false)
     String password;
 

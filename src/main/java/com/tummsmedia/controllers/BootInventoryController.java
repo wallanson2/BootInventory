@@ -76,7 +76,7 @@ public class BootInventoryController {
     }
 
     @RequestMapping(path = "/user", method = RequestMethod.POST)
-    public ResponseEntity<String> postUser(HttpSession session, @RequestBody User user) throws com.tummsmedia.utilities.PasswordStorage.InvalidHashException, com.tummsmedia.utilities.PasswordStorage.CannotPerformOperationException {
+    public ResponseEntity postUser(HttpSession session, @RequestBody User user) throws com.tummsmedia.utilities.PasswordStorage.InvalidHashException, com.tummsmedia.utilities.PasswordStorage.CannotPerformOperationException {
         User userFromDb = users.findFirstByUsername(user.getUsername());
         if (userFromDb == null) {
             user.setUsername(user.getUsername());
