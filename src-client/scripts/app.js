@@ -3,41 +3,49 @@ const React = require('react')
 const Backbone = require('backbone');
 
 
-const DashboardView = require('./multi-view.js')
+const AuthView = require('./auth-view.js')
 
+const MultiView = require('./multi-view.js')
 
+const AppViewController = require('./component-viewcontroller.js')
+
+console.log(Backbone)
 
 const AppRouter = Backbone.Router.extend({
 
     routes: {
-      "multiview" : "showMultiView"
+      "multiview" : "showMultiView",
       "*path" : "showAuthView"
 
-    }
+    },
 
   showMultiView: function(){
-    ReactDOM.render( <DashboardView/>  ,  document.querySelector('#app-container') )
-  }
+    ReactDOM.render( <AppViewController routedFrom="MultiView"/>, document.querySelector('#app-container') )
+  },
 
-  showAuthView: function({
+  showAuthView: function(){
+    ReactDOM.render(<AppViewController routedFrom="AuthView"/>, document.querySelector('#app-container') )
 
 
-    render: function(){
-      return (
-        <form role=“form”>
-          <div className=“form-group”>
-            <input type=“text” valueLink={this.linkState(‘user’)} placeholder=“Username” />
-            <input type=“password” valueLink={this.linkState(‘password’)} placeholder=“Password” />
-          </div>
-          <button type=“submit” onClick={this.login.bind(this)}>Submit</button>
-        </form>
-      )
-    }
-  })
+    console.log("hi")
+
+
+      // return (
+      //   `<form role=“form”>
+      //     <div className=“form-group”>
+      //       <input type=“text” valueLink={this.linkState(‘user’)} placeholder=“Username” />
+      //       <input type=“password” valueLink={this.linkState(‘password’)} placeholder=“Password” />
+      //     </div>
+      //     <button type=“submit” onClick={this.login.bind(this)}>Submit</button>
+      //   </form>`
+      // )
+
+  },
   initialize: function() {
     Backbone.history.start()
   }
-
+  // ReactDOM.render( document.getElementById('app-container')) = "<h1>help me</h1>"
 })
+
 
 new AppRouter()
