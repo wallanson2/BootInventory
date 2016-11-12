@@ -3,7 +3,7 @@ const React = require('react')
 const Backbone = require('backbone');
 
 const AuthView = require('./auth-view.js')
-const DashboardView = require('./multi-view.js')
+const MultiView = require('./multi-view.js')
 
 const AppViewController = require('./component-viewcontroller.js')
 
@@ -18,11 +18,11 @@ const AppRouter = Backbone.Router.extend({
     },
 
   showMultiView: function(){
-    ReactDOM.render( <DashboardView/>, document.querySelector('#app-container') )
+    ReactDOM.render( <AppViewController routedFrom="MultiView"/>, document.querySelector('#app-container') )
   },
 
   showAuthView: function(){
-    ReactDOM.render( <AuthView/>, document.querySelector('#app-container') )
+    ReactDOM.render( <AppViewController routedFrom='AuthView'/>, document.querySelector('#app-container') )
 
     console.log("hi")
 
