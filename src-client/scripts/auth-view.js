@@ -22,11 +22,11 @@ const AuthView = React.createClass({
       <div>
             <form className="form-group grid-container" onSubmit={this._handleUserAuth}>
               <div className="auth-header-container">
-                <h1 className="auth-header"></h1>
+                <h1 className="auth-header">Boots Inventory Control</h1>
               </div>
               <div className="row auth-container-row">
                  <div className="form-field user-container col-sm-12 col-md-12">
-                     <h2 className="user-label"><label>User </label></h2>
+                     <h2 className="user-label"><label>Username</label></h2>
                      <input className="auth-inputs" type="text" name="name"/>
                  </div>
 

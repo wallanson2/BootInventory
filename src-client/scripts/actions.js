@@ -1,7 +1,7 @@
 const Backbone = require('backbone')
 
 const UserModel= require('./model-user.js')
-const {InventoryModel, InventoryCollections} = require('./models.js')
+const {InventoryModel, InventoryCollection} = require('./models.js')
 
 const ACTIONS = {
   authenticateUser: function(userDataObj){
@@ -14,7 +14,18 @@ const ACTIONS = {
       console.log('serverres', serverRes)
       location.hash = ""
     })
+  },
+
+  fetchInventoryCollection: function(queryObj){
+    console.log('queryObj', queryObj)
+     const inventoryColl = new InventoryCollection()
+     inventoryColl.fetch().then(function(){
+        STORE.setStore('currentInventory', inventoryColl.models )
+     })
+
   }
+
+
 }
 
 

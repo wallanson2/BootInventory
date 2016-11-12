@@ -5,6 +5,9 @@ const Backbone = require('backbone');
 
 const AuthView = require('./auth-view.js')
 
+
+
+
 const MultiView = require('./multi-view.js')
 
 const AppViewController = require('./component-viewcontroller.js')
@@ -24,7 +27,11 @@ const AppRouter = Backbone.Router.extend({
   },
 
   showAuthView: function(){
+
     ReactDOM.render(<AppViewController routedFrom="AuthView"/>, document.querySelector('#app-container') )
+
+
+    ReactDOM.render( <AppViewController routedFrom='AuthView'/>, document.querySelector('#app-container') )
 
 
     console.log("hi")

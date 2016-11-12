@@ -10,16 +10,17 @@ const InventoryModel = Backbone.Model.extend({
   }
 });
 
-const InventoryCollections = Backbone.Collection.extend({
+const InventoryCollection = Backbone.Collection.extend({
   model: InventoryModel,
   url: "/all-boots",
 
   initialize: function(){
-     console.log(InventoryCollections)
+     console.log(InventoryCollection)
   }
+
 });
 
 module.exports = {
   InventoryModel,
-  InventoryCollections
+  InventoryCollection
 }
