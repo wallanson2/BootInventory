@@ -94,7 +94,7 @@ public class BootInventoryController {
     }
 
     @RequestMapping(path = "/all-boots", method = RequestMethod.GET)
-    public ResponseEntity<Iterable<Boot>> getAllBoots(HttpSession session, @RequestBody Boot boot) throws Exception {
+    public ResponseEntity<Iterable<Boot>> getAllBoots(HttpSession session) throws Exception {
         String username = (String) session.getAttribute("username");
         User user = users.findFirstByUsername(username);
         if (user == null) {
