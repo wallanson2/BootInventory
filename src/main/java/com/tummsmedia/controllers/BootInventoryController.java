@@ -87,7 +87,7 @@ public class BootInventoryController {
             return new ResponseEntity<String>(HttpStatus.FORBIDDEN);
         }
 
-        session.setAttribute("name", user.getUsername());
+        session.setAttribute("username", user.getUsername());
         String retJson = String.format("{\"id\" : \" %s \" , \"name\" : \"%s\"}", user.getId(), user.getUsername());
         System.out.println(retJson);
         return new ResponseEntity<String>(retJson, HttpStatus.OK);
