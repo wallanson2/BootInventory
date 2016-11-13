@@ -37,6 +37,9 @@ const MultiView = React.createClass({
 
   },
 
+
+
+
   // _addItem: function() {
   //   ACTIONS.addInventoryItem()
   // },
@@ -44,6 +47,7 @@ const MultiView = React.createClass({
   // _subtractItem: function() {
   //
   // },
+
 
 
   render: function(){

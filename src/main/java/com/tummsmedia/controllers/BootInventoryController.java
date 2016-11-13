@@ -123,9 +123,15 @@ public class BootInventoryController {
         boots.save(b);
         return new ResponseEntity(HttpStatus.OK);
     }
-//    @RequestMapping(path = "/edit-boot", method = RequestMethod.POST)
-//    public ResponseEntity editBoot(HttpSession session, @PathVariable("id")int id) {
-//        String name = (String) session.getAttribute("username");
-//        User user = user
-//    }
+    @RequestMapping(path = "/edit-boot", method = RequestMethod.POST)
+    public ResponseEntity editBoot(HttpSession session, @RequestBody Boot boot) throws Exception {
+        String name = (String) session.getAttribute("username");
+        User user = users.findFirstByUsername(name);
+        if (user == null) {
+            return new ResponseEntity(HttpStatus.FORBIDDEN);
+        }
+        Boot b = new Boot(boot.getBootName(), boot.getDescription(), boot.getStyle(), boot.getPrice(), user, boot.getImage(), boot.getQuantity());
+        boots.save(b);
+        return new ResponseEntity<Boot>(boot, HttpStatus.OK);
+    }
 }
