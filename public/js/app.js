@@ -1,1 +1,1 @@
-console.error("SyntaxError: /Users/Jordan_wicker/TIY/Assignments/BootInventory/src-client/scripts/app.js: Unexpected token (33:3) while parsing file: /Users/Jordan_wicker/TIY/Assignments/BootInventory/src-client/scripts/app.js");
+console.error("SyntaxError: /Users/homeBase1/TIY/assignments/assignment-25-backend-collaboration/src-client/scripts/app.js: Unexpected token, expected , (21:6) while parsing file: /Users/homeBase1/TIY/assignments/assignment-25-backend-collaboration/src-client/scripts/app.js");
