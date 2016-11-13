@@ -3,5 +3,5 @@
 /all-boots GET
 /get-boot/{id} GET - get a single boot by id. i.e. "localhost:8080/get-boot/5"
 /edit-boot PUT
-/add-boot - add new boot via all required fields
+/add-boot POST - add new boot via all required fields
 
