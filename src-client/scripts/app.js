@@ -30,8 +30,11 @@ const AppRouter = Backbone.Router.extend({
 
     ReactDOM.render(<AppViewController routedFrom="AuthView"/>, document.querySelector('#app-container') )
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 6b999d9dfff4b1f203ab86e2ef9c26a9129c9c54
     console.log("hi")
 
 

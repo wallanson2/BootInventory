@@ -37,6 +37,7 @@ const MultiView = React.createClass({
 
   },
 
+<<<<<<< HEAD
   _addItem: function() {
     ACTIONS.addInventoryItem()
   },
@@ -44,6 +45,15 @@ const MultiView = React.createClass({
   _subtractItem: function() {
 
   },
+=======
+  // _addItem: function() {
+  //   ACTIONS.addInventoryItem()
+  // },
+  //
+  // _subtractItem: function() {
+  //
+  // },
+>>>>>>> 6b999d9dfff4b1f203ab86e2ef9c26a9129c9c54
 
 
   render: function(){
@@ -51,20 +61,24 @@ const MultiView = React.createClass({
 
 
     var bootListings = this.props.payloadData.map(function(data){
+      console.log(data.attributes.image)
       return(
 
-          <div className="row">
+
             <div className="col-xs-4  col-md-4">
+              <div className="thumbnail thumbnail-container">
+                <img src={"images/" + data.attributes.image} alt="..." data-id={data.cid}/>
 
-
+<<<<<<< HEAD
               <div className="thumbnail">
                 <img src="#" alt="..." onClick={_itemSelector} data-id={data.cid}/>
+=======
+                <h4>{data.attributes.bootName}</h4>
+                <p>Price: {data.attributes.price}</p>
+                <p>Quantity: {data.attributes.quantity}</p>
+>>>>>>> 6b999d9dfff4b1f203ab86e2ef9c26a9129c9c54
               </div>
-              <h2>{data.attributes.bootName}</h2>
-              <p>{data.attributes.price}</p>
-              <p>{data.attributes.quantity}</p>
             </div>
-          </div>
       )
     })
 //{data.imgasdfasd}
@@ -77,7 +91,9 @@ const MultiView = React.createClass({
         <h2 className="multi-sub-header">Inventory Control System</h2>
         <hr/>
         <div className="multi-pic-container">
-          {bootListings}
+          <div className="row">
+            {bootListings}
+          </div>
         </div>
         <hr/>
         <div className="inv-input-container">
@@ -85,9 +101,9 @@ const MultiView = React.createClass({
 
           <form className="navbar-form inv-form-container" role="search">
             <div className="form-group">
-              <button type="submit" className="btn btn-default" onClick={_addItem}>Add</button>
+              <button type="submit" className="btn btn-default">Add</button>
               <input type="text" className="form-control" placeholder="Enter Amount" />
-              <button type="submit" className="btn btn-default" onClick={_subtractItem}>Subtract</button>
+              <button type="submit" className="btn btn-default" >Subtract</button>
             </div>
           </form>
         </div>
