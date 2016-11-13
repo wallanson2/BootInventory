@@ -1,20 +1,3 @@
-
-// const Backbone = require('backbone')
-// const React = require('react')
-// const ACTIONS = require('./actions.js')
-//
-// const MultiView = React.createClass({
-//    _handleBootData: function(evt){
-//       evt.preventDefault()
-//
-//       let bootData = {
-//
-//       },
-//    }
-// })
-//
-// module.exports = MultiView
-
 const React = require('react')
 const ReactDOM = require('react-dom')
 
@@ -26,10 +9,6 @@ const MultiView = React.createClass({
   componentWillMount: function(){
     ACTIONS.fetchInventoryCollection()
 
-    // console.log( "lets see" ,STORE._data.currentInventory)
-
-
-
   },
 
   _itemSelector: function() {
@@ -37,39 +16,26 @@ const MultiView = React.createClass({
 
   },
 
-
-
-
-  // _addItem: function() {
-  //   ACTIONS.addInventoryItem()
-  // },
-  //
-  // _subtractItem: function() {
-  //
-  // },
-
-
-
   render: function(){
+     let self = this
 
 
-
-    var bootListings = this.props.payloadData.map(function(data){
+    var bootListings = this.props.payloadData.map(function(data, i){
       console.log(data.attributes.image)
       return(
 
 
-            <div className="col-xs-4  col-md-4">
-              <div className="thumbnail thumbnail-container">
-                <img src={"images/" + data.attributes.image} alt="..." data-id={data.cid}/>
-                <h4>{data.attributes.bootName}</h4>
-                <p>Price: {data.attributes.price}</p>
-                <p>Quantity: {data.attributes.quantity}</p>
-              </div>
-            </div>
+            <div className="col-xs-4  col-md-4" key={data.cid}>
+                 <div className="thumbnail thumbnail-container">
+                   <img src={"images/" + data.attributes.image} alt="" data-id={data.cid}/>
+                   <h4>{data.attributes.bootName}</h4>
+                   <p>Price: {data.attributes.price}</p>
+                   <p>Quantity: {data.attributes.quantity}</p>
+                 </div>
+               </div>
       )
     })
-//{data.imgasdfasd}
+// {data.imgasdfasd}
 
     console.log(  "BABAM SUCESS MOTHER F'er"  ,this.props.payloadData)
     console.log("hey this is the data here super long so i can see it",bootListings)
@@ -90,12 +56,11 @@ const MultiView = React.createClass({
           <form className="navbar-form inv-form-container" role="search">
             <div className="form-group">
               <button type="submit" className="btn btn-default">Add</button>
-              <input type="text" className="form-control" placeholder="Enter Amount" />
               <button type="submit" className="btn btn-default" >Subtract</button>
+              </div>
+             </form>
             </div>
-          </form>
-        </div>
-      </div>
+         </div>
     )
   }
 

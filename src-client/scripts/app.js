@@ -2,44 +2,52 @@ const ReactDOM = require('react-dom');
 const React = require('react')
 const Backbone = require('backbone');
 
-
 const AuthView = require('./auth-view.js')
-
-
-
-
+const SingleView = require('./single-view.js')
 const MultiView = require('./multi-view.js')
-
 const AppViewController = require('./component-viewcontroller.js')
 
-console.log(Backbone)
+//console.log(Backbone)
 
 const AppRouter = Backbone.Router.extend({
 
     routes: {
-      "singleview" : "showSingleView"
+      "singleview" : "showSingleView",
       "multiview" : "showMultiView",
       "*path" : "showAuthView"
 
     },
 
-  showMultiView: function(){
-    ReactDOM.render( <AppViewController routedFrom="MultiView"/>, document.querySelector('#app-container') )
-  },
+    showSingleView: function(){
+      ReactDOM.render( <AppViewController routedFrom="SingleView"/>, document.querySelector('#app-container') )
+    },
 
-  showAuthView: function(){
+    showMultiView: function(){
+      ReactDOM.render( <AppViewController routedFrom="MultiView"/>, document.querySelector('#app-container') )
+    },
 
-    ReactDOM.render(<AppViewController routedFrom="AuthView"/>, document.querySelector('#app-container') )
+    showAuthView: function(){
+      ReactDOM.render(<AppViewController routedFrom="AuthView"/>, document.querySelector('#app-container') )
+
+
+
+
+
 
     console.log("hi")
 
+
+      // return (
+      //   `<form role=“form”>
+      //     <div className=“form-group”>
+      //       <input type=“text” valueLink={this.linkState(‘user’)} placeholder=“Username” />
+      //       <input type=“password” valueLink={this.linkState(‘password’)} placeholder=“Password” />
+      //     </div>
+      //     <button type=“submit” onClick={this.login.bind(this)}>Submit</button>
+      //   </form>`
+      // )
+
   },
-
-  showSingleView: function(){
-    ReactDOM.render(<AppViewController routedFrom="SingleView"/>, document.querySelector('#app-container') ))
-  }
-
-
   initialize: function() {
     Backbone.history.start()
   }
