@@ -11,10 +11,8 @@ import jodd.json.JsonParser;
 import jodd.json.JsonSerializer;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.servlet.http.HttpSession;
@@ -25,6 +23,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 /**
  * Created by john.tumminelli on 11/11/16.
@@ -89,7 +89,6 @@ public class BootInventoryController {
 
         session.setAttribute("username", user.getUsername());
         String retJson = String.format("{\"id\" : \" %s \" , \"name\" : \"%s\"}", user.getId(), user.getUsername());
-        System.out.println(retJson);
         return new ResponseEntity<String>(retJson, HttpStatus.OK);
     }
 
@@ -103,13 +102,25 @@ public class BootInventoryController {
         return new ResponseEntity<Iterable<Boot>>(boots.findAll(), HttpStatus.OK);
 
     }
-    @RequestMapping(path = "/get-boot", method = RequestMethod.GET)
-    public ResponseEntity<Boot> getBoot(HttpSession session, @RequestBody Boot boot) throws Exception {
+    @RequestMapping(path = "/get-boot/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Boot> getBoot(@PathVariable("id")int id, HttpSession session) throws Exception {
         String name = (String) session.getAttribute("username");
         User user = users.findFirstByUsername(name);
+        Boot boot = boots.findFirstById(Integer.valueOf(id));
         if (user == null) {
             return new ResponseEntity<Boot>(HttpStatus.FORBIDDEN);
         }
-        return new ResponseEntity<Boot>(boots.findOne(boot.getId()), HttpStatus.OK);
+        return new ResponseEntity<Boot>(boot, HttpStatus.OK);
+    }
+    @RequestMapping(path = "/add-boot", method = RequestMethod.POST)
+    public ResponseEntity addBoot(HttpSession session, @RequestBody Boot boot) throws Exception {
+        String name = (String) session.getAttribute("username");
+        User user = users.findFirstByUsername(name);
+        Boot b = new Boot(boot.getBootName(), boot.getDescription(), boot.getStyle(), boot.getPrice(), user, boot.getImage(), boot.getQuantity());
+        if (user == null) {
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        }
+        boots.save(b);
+        return new ResponseEntity(HttpStatus.OK);
     }
 }

@@ -1,6 +1,7 @@
 package com.tummsmedia.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 
@@ -18,7 +19,8 @@ public class User {
     @Column(nullable = false)
     String username;
 
-//    @JsonIgnore
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Column(nullable = false)
     String password;
 

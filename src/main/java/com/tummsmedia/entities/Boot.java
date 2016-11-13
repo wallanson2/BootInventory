@@ -12,7 +12,8 @@ public class Boot {
         WORK,
         OUTDOORS,
         WESTERN,
-        DAILYWEAR
+        DAILYWEAR,
+        SKI
     }
 
 
@@ -35,15 +36,24 @@ public class Boot {
     @ManyToOne
     User user;
 
+    @Column(nullable = false)
+    String image;
+
+    @Column(nullable = false)
+    int quantity;
+
+
     public Boot() {
     }
 
-    public Boot(String bootName, String description, Style style, double price, User user) {
+    public Boot(String bootName, String description, Style style, double price, User user, String image, int quantity) {
         this.bootName = bootName;
         this.description = description;
         this.style = style;
         this.price = price;
         this.user = user;
+        this.image = image;
+        this.quantity = quantity;
     }
 
     public int getId() {
@@ -93,4 +103,21 @@ public class Boot {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
 }
