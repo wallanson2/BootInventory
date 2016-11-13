@@ -5,16 +5,28 @@ const ACTIONS = require('./actions.js')
 const AuthView = require('./auth-view.js')
 const MultiView = require('./multi-view.js')
 
+
+
+
 const AppViewController = React.createClass({
 
 
-  // componentWillMount: function(){
-  //   let self = this
-  //   STORE.onChange(function(){
-  //       let updateState = STORE.getStoreData()
-  //       self.setState(updateState)
-  //   })
-  // }
+  componentWillMount: function(){
+    let self = this
+
+    let updateState = STORE.getStoreData()
+    console.log( "the retrieved data:" ,updateState.currentInventory)
+    self.setState({currentInventory: updateState.currentInventory})
+
+
+    STORE.onChange(function(){
+        let updateState = STORE.getStoreData()
+        console.log( "the retrieved data:" ,updateState.currentInventory)
+        self.setState({currentInventory: updateState.currentInventory})
+    })
+
+
+  },
 
 
   render: function() {
@@ -25,8 +37,9 @@ const AppViewController = React.createClass({
          break;
 
       case "MultiView":
+        
         console.log("rendering multiview")
-        return <MultiView />
+        return <MultiView payloadData={this.state.currentInventory}/>
         break;
     }
   }
