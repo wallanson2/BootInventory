@@ -12,7 +12,11 @@ const AppViewController = require('./component-viewcontroller.js')
 const AppRouter = Backbone.Router.extend({
 
     routes: {
+<<<<<<< HEAD
       "singleview/:id" : "showSingleView",
+=======
+      "singleview" : "showSingleView"
+>>>>>>> 724bdf3b660d73a93555c1a39d79cd7e4da72d91
       "multiview" : "showMultiView",
       "*path" : "showAuthView"
 
@@ -32,22 +36,20 @@ const AppRouter = Backbone.Router.extend({
 
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 724bdf3b660d73a93555c1a39d79cd7e4da72d91
     console.log("hi")
 
-
-      // return (
-      //   `<form role=“form”>
-      //     <div className=“form-group”>
-      //       <input type=“text” valueLink={this.linkState(‘user’)} placeholder=“Username” />
-      //       <input type=“password” valueLink={this.linkState(‘password’)} placeholder=“Password” />
-      //     </div>
-      //     <button type=“submit” onClick={this.login.bind(this)}>Submit</button>
-      //   </form>`
-      // )
-
   },
+
+  showSingleView: function(){
+    ReactDOM.render(<AppViewController routedFrom="SingleView"/>, document.querySelector('#app-container') ))
+  }
+
+
   initialize: function() {
     Backbone.history.start()
   }

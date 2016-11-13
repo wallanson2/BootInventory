@@ -23,6 +23,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
@@ -134,4 +135,15 @@ public class BootInventoryController {
         boots.save(b);
         return new ResponseEntity<Boot>(boot, HttpStatus.OK);
     }
+    @RequestMapping(method = RequestMethod.GET, path = "/{username}/list-by-user.json")
+    public ResponseEntity<Iterable<Boot>> listByUser(HttpSession session, @PathVariable("username") String targetUser){
+        String name = (String) session.getAttribute("username");
+        User user = users.findFirstByUsername(name);
+        if (user == null) {
+            return new ResponseEntity(HttpStatus.FORBIDDEN);
+        }
+        User u = users.findFirstByUsername(targetUser);
+        return new ResponseEntity<Iterable<Boot>> (boots.findByUser(u), HttpStatus.OK);
+    }
+
 }
