@@ -4,12 +4,8 @@ const Backbone = require('backbone');
 
 
 const AuthView = require('./auth-view.js')
-
-
-
-
+const OopsView = require('./oops-view.js')
 const MultiView = require('./multi-view.js')
-
 const AppViewController = require('./component-viewcontroller.js')
 
 console.log(Backbone)
@@ -17,6 +13,7 @@ console.log(Backbone)
 const AppRouter = Backbone.Router.extend({
 
     routes: {
+      "oops" : "showOopsView",
       "singleview" : "showSingleView",
       "multiview" : "showMultiView",
       "*path" : "showAuthView"
@@ -39,11 +36,14 @@ const AppRouter = Backbone.Router.extend({
     ReactDOM.render(<AppViewController routedFrom="SingleView"/>, document.querySelector('#app-container') )
   },
 
+  showOopsView: function(){
+    ReactDOM.render(<AppViewController routedFrom="OopsView"/>, document.querySelector('#app-container') )
+  },
+
 
   initialize: function() {
     Backbone.history.start()
   }
-  // ReactDOM.render( document.getElementById('app-container')) = "<h1>help me</h1>"
 })
 
 

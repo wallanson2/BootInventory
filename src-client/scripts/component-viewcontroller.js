@@ -5,7 +5,7 @@ const ACTIONS = require('./actions.js')
 const AuthView = require('./auth-view.js')
 const MultiView = require('./multi-view.js')
 const SingleView = require('./single-view.js')
-
+const OopsView = require('./oops-view.js')
 
 
 
@@ -25,8 +25,6 @@ const AppViewController = React.createClass({
         console.log( "the retrieved data:" ,updateState.currentInventory)
         self.setState({currentInventory: updateState.currentInventory})
     })
-
-
   },
 
 
@@ -45,6 +43,10 @@ const AppViewController = React.createClass({
 
       case "SingleView":
           return <SingleView />
+          break;
+
+      case "OopsView":
+          return <OopsView/>
           break;
     }
   }

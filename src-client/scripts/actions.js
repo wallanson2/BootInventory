@@ -2,6 +2,7 @@ const Backbone = require('backbone')
 const STORE = require('./store.js')
 const UserModel= require('./model-user.js')
 const {InventoryModel, InventoryCollection} = require('./models.js')
+const OopsView = require('./oops-view.js')
 
 const ACTIONS = {
   authenticateUser: function(userDataObj){
@@ -14,6 +15,10 @@ const ACTIONS = {
      userMod.save().then(function(serverRes){
       console.log('serverres', serverRes)
       location.hash = "/multiview"
+    }).fail(function(err){
+      console.log('wrong pw bro')
+      location.hash = "/oops"
+
     })
   },
 
@@ -24,7 +29,6 @@ const ACTIONS = {
         STORE.setStore('currentInventory', inventoryColl.models )
 
      })
-
   },
 
 
@@ -35,7 +39,7 @@ const ACTIONS = {
     addCount = addCount + 1
 
   },
-    
+
   addInventoryItem: function(){
     console.log('trying to add', this.props.attributes.quantity)
     // let addCount = new this.props.attributes.quantity

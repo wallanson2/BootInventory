@@ -27,18 +27,11 @@ const MultiView = React.createClass({
     ACTIONS.fetchInventoryCollection()
 
     // console.log( "lets see" ,STORE._data.currentInventory)
-
-
-
   },
 
   _itemSelector: function() {
 
-
   },
-
-
-
 
   // _addItem: function() {
   //   ACTIONS.addInventoryItem()
@@ -48,17 +41,11 @@ const MultiView = React.createClass({
   //
   // },
 
-
-
   render: function(){
-
-
 
     var bootListings = this.props.payloadData.map(function(data){
       console.log(data.attributes.image)
       return(
-
-
             <div className="col-xs-4  col-md-4">
               <div className="thumbnail thumbnail-container">
                 <a href="./#singleview">
@@ -72,7 +59,6 @@ const MultiView = React.createClass({
       )
     })
 
-
     console.log(  "BABAM SUCESS MOTHER F'er"  ,this.props.payloadData)
     console.log("hey this is the data here super long so i can see it",bootListings)
     return (
@@ -84,12 +70,6 @@ const MultiView = React.createClass({
           <div className="row">
             {bootListings}
           </div>
-        </div>
-        <hr/>
-        <div className="inv-input-container">
-          <h4 className="note-to-self">wrap pictures in anchor tags and then whichever picture is selected will<br/>point to the input element to make inventory changes</h4>
-
-          
         </div>
       </div>
     )
