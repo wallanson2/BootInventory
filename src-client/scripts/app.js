@@ -17,7 +17,7 @@ console.log(Backbone)
 const AppRouter = Backbone.Router.extend({
 
     routes: {
-      "singleview" : "showSingleView"
+      "singleview" : "showSingleView",
       "multiview" : "showMultiView",
       "*path" : "showAuthView"
 
@@ -36,8 +36,8 @@ const AppRouter = Backbone.Router.extend({
   },
 
   showSingleView: function(){
-    ReactDOM.render(<AppViewController routedFrom="SingleView"/>, document.querySelector('#app-container') ))
-  }
+    ReactDOM.render(<AppViewController routedFrom="SingleView"/>, document.querySelector('#app-container') )
+  },
 
 
   initialize: function() {

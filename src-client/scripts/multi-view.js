@@ -61,7 +61,9 @@ const MultiView = React.createClass({
 
             <div className="col-xs-4  col-md-4">
               <div className="thumbnail thumbnail-container">
-                <img src={"images/" + data.attributes.image} alt="..." data-id={data.cid}/>
+                <a href="./#singleview">
+                  <img src={"images/" + data.attributes.image} alt="..." data-id={data.cid}/>
+                </a>
                 <h4>{data.attributes.bootName}</h4>
                 <p>Price: {data.attributes.price}</p>
                 <p>Quantity: {data.attributes.quantity}</p>
@@ -69,7 +71,7 @@ const MultiView = React.createClass({
             </div>
       )
     })
-//{data.imgasdfasd}
+
 
     console.log(  "BABAM SUCESS MOTHER F'er"  ,this.props.payloadData)
     console.log("hey this is the data here super long so i can see it",bootListings)
@@ -87,13 +89,7 @@ const MultiView = React.createClass({
         <div className="inv-input-container">
           <h4 className="note-to-self">wrap pictures in anchor tags and then whichever picture is selected will<br/>point to the input element to make inventory changes</h4>
 
-          <form className="navbar-form inv-form-container" role="search">
-            <div className="form-group">
-              <button type="submit" className="btn btn-default">Add</button>
-              <input type="text" className="form-control" placeholder="Enter Amount" />
-              <button type="submit" className="btn btn-default" >Subtract</button>
-            </div>
-          </form>
+          
         </div>
       </div>
     )
