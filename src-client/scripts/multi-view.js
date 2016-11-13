@@ -58,7 +58,6 @@ const MultiView = React.createClass({
             <div className="col-xs-4  col-md-4">
               <div className="thumbnail thumbnail-container">
                 <img src={"images/" + data.attributes.image} alt="..." data-id={data.cid}/>
-
                 <h4>{data.attributes.bootName}</h4>
                 <p>Price: {data.attributes.price}</p>
                 <p>Quantity: {data.attributes.quantity}</p>
