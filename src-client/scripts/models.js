@@ -15,7 +15,7 @@ const InventoryCollection = Backbone.Collection.extend({
   url: "/all-boots",
 
   initialize: function(){
-
+     console.log(InventoryCollection)
   }
 
 });

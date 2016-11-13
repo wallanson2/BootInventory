@@ -2,6 +2,7 @@ const Backbone = require('backbone')
 const STORE = require('./store.js')
 const UserModel= require('./model-user.js')
 const {InventoryModel, InventoryCollection} = require('./models.js')
+const STORE = require('./store.js')
 
 const ACTIONS = {
   authenticateUser: function(userDataObj){
@@ -22,6 +23,7 @@ const ACTIONS = {
      const inventoryColl = new InventoryCollection()
      inventoryColl.fetch().then(function(){
         STORE.setStore('currentInventory', inventoryColl.models )
+
      })
 
   },
