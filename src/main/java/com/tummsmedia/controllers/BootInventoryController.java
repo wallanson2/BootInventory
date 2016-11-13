@@ -123,9 +123,9 @@ public class BootInventoryController {
         boots.save(b);
         return new ResponseEntity(HttpStatus.OK);
     }
-    @RequestMapping(path = "/edit-boot", method = RequestMethod.POST)
-    public ResponseEntity editBoot(HttpSession session, @PathVariable("id")int id) {
-        String name = (String) session.getAttribute("username");
-        User user = user
-    }
+//    @RequestMapping(path = "/edit-boot", method = RequestMethod.POST)
+//    public ResponseEntity editBoot(HttpSession session, @PathVariable("id")int id) {
+//        String name = (String) session.getAttribute("username");
+//        User user = user
+//    }
 }
