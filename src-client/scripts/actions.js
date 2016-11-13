@@ -1,5 +1,5 @@
 const Backbone = require('backbone')
-
+const STORE = require('./store.js')
 const UserModel= require('./model-user.js')
 const {InventoryModel, InventoryCollection} = require('./models.js')
 const STORE = require('./store.js')
@@ -8,12 +8,13 @@ const ACTIONS = {
   authenticateUser: function(userDataObj){
      console.log('user data obj', userDataObj)
      let userMod = new UserModel()
+
      userMod.set(userDataObj)
      console.log('user mod', userMod)
 
      userMod.save().then(function(serverRes){
       console.log('serverres', serverRes)
-      location.hash = ""
+      location.hash = "/multiview"
     })
   },
 
@@ -25,7 +26,15 @@ const ACTIONS = {
 
      })
 
-  }
+  },
+
+  addInventoryItem: function(){
+    console.log('trying to add')
+    let addCount = new this.props.attributes.quantity
+    console.log(addCount)
+    addCount = addCount + 1
+  },
+
 
 
 }
