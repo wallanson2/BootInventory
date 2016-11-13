@@ -116,7 +116,7 @@ public class BootInventoryController {
     public ResponseEntity addBoot(HttpSession session, @RequestBody Boot boot) throws Exception {
         String name = (String) session.getAttribute("username");
         User user = users.findFirstByUsername(name);
-        Boot b = new Boot(boot.getBootName(), boot.getDescription(), boot.getStyle(), boot.getPrice(), user);
+        Boot b = new Boot(boot.getBootName(), boot.getDescription(), boot.getStyle(), boot.getPrice(), user, boot.getImage(), boot.getQuantity());
         if (user == null) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }

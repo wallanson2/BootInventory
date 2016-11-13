@@ -5,15 +5,82 @@
      "description": "Cool pair of boots",
      "style": "DAILYWEAR",
      "user_id": 17,
-     "price": 149.99
+     "price": 149.99,
+     "image": "test",
+     "quantity": 35
   },
   {
      "bootName": "Howdy Tex!",
      "description": "Best Western tall with emboss",
      "style": "WESTERN",
      "user_id": 24,
-     "price": 227.50
-  }
+     "price": 227.50,
+     "image": "test",
+     "quantity": 82
+  },
+  {
+      "bootName": "Das boot",
+      "description": "Take to the alps in our popular ski boot",
+      "style": "SKI",
+      "price": 340.50,
+      "user": null,
+      "image": "ski.jpg",
+      "quantity": 25
+   },
+   {
+       "bootName": "Mind your business",
+       "description": "Executive style for the masses",
+       "style": "DAILYWEAR",
+       "price": 275.99,
+       "user": null,
+       "image": "test",
+       "quantity": 103
+   },
+    {
+        "bootName": "The John Wayne",
+        "description": "Walk like a Badass cowboy",
+        "style": "WESTERN",
+        "price": 500.00,
+        "user": null,
+        "image": "the_john_wayne.jpg",
+        "quantity": 55
+    },
+    {
+        "bootName": "Practical Tactical",
+        "description": "Tactical boot for police, military, and wannabe's",
+        "style": "WORK",
+        "price": 157.955,
+        "user": null,
+        "image": "tactical.jpg",
+        "quantity": 18
+    },
+    {
+        "bootName": "Workin 9 to 5",
+        "description": "Workboot for the the working class hero",
+        "style": "WORK",
+        "price": 225.00,
+        "user": null,
+        "image": "test",
+        "quantity": 99
+    },
+    {
+        "bootName": "City Slicker Cowboy",
+        "description": "Western for cityfolk Yankees",
+        "style": "WESTERN",
+        "price": 495.5,
+        "user": null,
+        "image": "western_2.jpg",
+        "quantity": 23
+     },
+     {
+        "bootName": "The Austerity",
+        "description": "the cheapest boot we stock",
+        "style": "DAILYWEAR",
+        "price": 99.99,
+        "user": null,
+        "image": "test",
+        "quantity": 234
+     }
   ]
 
   }

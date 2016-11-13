@@ -8,6 +8,7 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface BootRepo extends CrudRepository<Boot, Integer> {
     Boot findFirstById(int id);
+    Boot findByStyle(Boot.Style style);
 
 
 }
