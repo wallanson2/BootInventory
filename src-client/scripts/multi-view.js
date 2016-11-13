@@ -37,6 +37,15 @@ const MultiView = React.createClass({
 
   },
 
+<<<<<<< HEAD
+  _addItem: function() {
+    ACTIONS.addInventoryItem()
+  },
+
+  _subtractItem: function() {
+
+  },
+=======
   // _addItem: function() {
   //   ACTIONS.addInventoryItem()
   // },
@@ -44,6 +53,7 @@ const MultiView = React.createClass({
   // _subtractItem: function() {
   //
   // },
+>>>>>>> 6b999d9dfff4b1f203ab86e2ef9c26a9129c9c54
 
 
   render: function(){
@@ -59,9 +69,14 @@ const MultiView = React.createClass({
               <div className="thumbnail thumbnail-container">
                 <img src={"images/" + data.attributes.image} alt="..." data-id={data.cid}/>
 
+<<<<<<< HEAD
+              <div className="thumbnail">
+                <img src="#" alt="..." onClick={_itemSelector} data-id={data.cid}/>
+=======
                 <h4>{data.attributes.bootName}</h4>
                 <p>Price: {data.attributes.price}</p>
                 <p>Quantity: {data.attributes.quantity}</p>
+>>>>>>> 6b999d9dfff4b1f203ab86e2ef9c26a9129c9c54
               </div>
             </div>
       )

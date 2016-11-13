@@ -2,8 +2,11 @@ const Backbone = require('backbone')
 const STORE = require('./store.js')
 const UserModel= require('./model-user.js')
 const {InventoryModel, InventoryCollection} = require('./models.js')
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 6b999d9dfff4b1f203ab86e2ef9c26a9129c9c54
 
 const ACTIONS = {
   authenticateUser: function(userDataObj){
@@ -29,11 +32,19 @@ const ACTIONS = {
 
   },
 
+<<<<<<< HEAD
+  _addItem: function(){
+    console.log('trying to add')
+    let addCount = new this.props.attributes.quantity
+    console.log(addCount)
+    addCount = addCount + 1
+=======
   addInventoryItem: function(){
     console.log('trying to add', this.props.attributes.quantity)
     // let addCount = new this.props.attributes.quantity
     // console.log(addCount)
     // addCount = addCount + 1
+>>>>>>> 6b999d9dfff4b1f203ab86e2ef9c26a9129c9c54
   },
 
 
