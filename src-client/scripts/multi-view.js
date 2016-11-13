@@ -37,7 +37,7 @@ const MultiView = React.createClass({
 
   },
 
-  _addItem: function() {  
+  _addItem: function() {
     ACTIONS.addInventoryItem()
   },
 
@@ -58,7 +58,7 @@ const MultiView = React.createClass({
 
 
               <div className="thumbnail">
-                <img src={} alt="..." onClick={_itemSelector} data-id={data.cid}/>
+                <img src="#" alt="..." onClick={_itemSelector} data-id={data.cid}/>
               </div>
               <h2>{data.attributes.bootName}</h2>
               <p>{data.attributes.price}</p>
