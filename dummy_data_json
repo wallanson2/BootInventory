@@ -6,7 +6,7 @@
      "style": "DAILYWEAR",
      "user_id": 17,
      "price": 149.99,
-     "image": "test",
+     "image": "work_boot_1.jpg",
      "quantity": 35
   },
   {
@@ -15,7 +15,7 @@
      "style": "WESTERN",
      "user_id": 24,
      "price": 227.50,
-     "image": "test",
+     "image": "western_2.jpg",
      "quantity": 82
   },
   {
@@ -33,7 +33,7 @@
        "style": "DAILYWEAR",
        "price": 275.99,
        "user": null,
-       "image": "test",
+       "image": "work_black",
        "quantity": 103
    },
     {
@@ -49,7 +49,7 @@
         "bootName": "Practical Tactical",
         "description": "Tactical boot for police, military, and wannabe's",
         "style": "WORK",
-        "price": 157.955,
+        "price": 157.95,
         "user": null,
         "image": "tactical.jpg",
         "quantity": 18
@@ -60,16 +60,16 @@
         "style": "WORK",
         "price": 225.00,
         "user": null,
-        "image": "test",
+        "image": "western_4.jpg",
         "quantity": 99
     },
     {
         "bootName": "City Slicker Cowboy",
         "description": "Western for cityfolk Yankees",
         "style": "WESTERN",
-        "price": 495.5,
+        "price": 495.59,
         "user": null,
-        "image": "western_2.jpg",
+        "image": "city_slicker.jpg",
         "quantity": 23
      },
      {
@@ -78,7 +78,7 @@
         "style": "DAILYWEAR",
         "price": 99.99,
         "user": null,
-        "image": "test",
+        "image": "red-wing-hiker.jpg",
         "quantity": 234
      }
   ]
