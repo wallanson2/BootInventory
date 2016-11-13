@@ -12,14 +12,14 @@ const AppViewController = require('./component-viewcontroller.js')
 const AppRouter = Backbone.Router.extend({
 
     routes: {
-      "singleview" : "showSingleView",
+      "singleview/:id" : "showSingleView",
       "multiview" : "showMultiView",
       "*path" : "showAuthView"
 
     },
 
     showSingleView: function(){
-      ReactDOM.render( <AppViewController routedFrom="SingleView"/>, document.querySelector('#app-container') )
+      ReactDOM.render( <AppViewController routedFrom="SingleView" />, document.querySelector('#app-container') )
     },
 
     showMultiView: function(){

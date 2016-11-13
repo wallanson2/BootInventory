@@ -21,7 +21,6 @@ const MultiView = React.createClass({
 
 
     var bootListings = this.props.payloadData.map(function(data, i){
-      console.log(data.attributes.image)
       return(
 
 
@@ -37,30 +36,21 @@ const MultiView = React.createClass({
     })
 // {data.imgasdfasd}
 
-    console.log(  "BABAM SUCESS MOTHER F'er"  ,this.props.payloadData)
-    console.log("hey this is the data here super long so i can see it",bootListings)
+   // console.log(  "BABAM SUCESS MOTHER F'er"  ,this.props.payloadData)
+   // console.log("hey this is the data here super long so i can see it",bootListings)
     return (
       <div className="multi-container">
-        <h1 className="multi-header">BootHaus</h1>
-        <h2 className="multi-sub-header">Inventory Control System</h2>
-        <hr/>
-        <div className="multi-pic-container">
-          <div className="row">
-            {bootListings}
-          </div>
-        </div>
-        <hr/>
-        <div className="inv-input-container">
-          <h4 className="note-to-self">wrap pictures in anchor tags and then whichever picture is selected will<br/>point to the input element to make inventory changes</h4>
-
-          <form className="navbar-form inv-form-container" role="search">
-            <div className="form-group">
-              <button type="submit" className="btn btn-default">Add</button>
-              <button type="submit" className="btn btn-default" >Subtract</button>
-              </div>
-             </form>
+         <h1 className="multi-header">BootHaus</h1>
+         <h2 className="multi-sub-header">Inventory Control System</h2>
+         <hr/>
+         <div className="multi-pic-container">
+            <div className="row">
+               {bootListings}
             </div>
          </div>
+            <hr/>
+      </div>
+
     )
   }
 

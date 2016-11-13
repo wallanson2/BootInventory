@@ -12,7 +12,7 @@ const SingleView = React.createClass({
          <div className="single-container">
             <div className="row">
                <div className="col-xs-12 col-sm-12 col-md-12">
-               <h1>HI</h1>
+
                </div>
             </div>
          </div>

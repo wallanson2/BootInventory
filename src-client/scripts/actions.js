@@ -33,7 +33,7 @@ const ACTIONS = {
   },
 
 
-  _addItem: function(){
+  addInventoryItem: function(){
     //console.log('trying to add')
     let addCount = new this.props.attributes.quantity
     //console.log(addCount)
@@ -41,7 +41,7 @@ const ACTIONS = {
 
   },
 
-  _subtractItem: function(){
+  subtractInventoryItem: function(){
      //console.log('trying to subtract')
      let subtractCount = new this.props.attributes.quantity
      //console.log(subtractCount)
