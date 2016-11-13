@@ -1,6 +1,14 @@
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
+img {
+	display: inline-block;
+	width: 30%;
+	height: 200px;
+	border: 1px solid black;
+	margin-left: 2.5%;
+	margin-bottom: 10px;
 
+}
 
 * {
 	box-sizing: border-box;
@@ -44,8 +52,32 @@ body{
 .user-container {
 	margin-top: 75px;
 }
-h1 {
-	font-size: 200px;
+.multi-header {
+	font-size: 75px;
 	text-align: center;
-	color: red;
+	color: #ff0000;
+}
+
+.multi-sub-header {
+	font-size: 40px;
+	text-align: center;
+	color: #ff3399;
+}
+
+.multi-pic-container {
+	width: 70%;
+	margin: auto;
+}
+
+.inv-input-container {
+	margin-top: 50px;
+
+}
+
+.inv-form-container {
+	margin-left: 35%;
+}
+
+.note-to-self {
+	text-align: center;
 }
