@@ -1,9 +1,10 @@
 const Backbone = require('backbone')
-
+const ACTIONS = require('./actions.js')
 const STORE = {
    _data:  {
        currentViewSetting : '',
        currentInventory : [],
+       singleListing: {} //Backbone Model instance
     },
 
    setStore: function(storeProp, payload){

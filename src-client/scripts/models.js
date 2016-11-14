@@ -3,7 +3,7 @@ const Backbone = require('backbone');
 
 
 const InventoryModel = Backbone.Model.extend({
-  url: "/all-boots",
+  urlRoot: "/get-boot",
 
   initialize: function(){
 
@@ -20,7 +20,8 @@ const InventoryCollection = Backbone.Collection.extend({
 
 });
 
+
 module.exports = {
   InventoryModel,
-  InventoryCollection
+  InventoryCollection,
 }
