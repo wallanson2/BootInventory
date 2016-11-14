@@ -1,12 +1,14 @@
 const React = require('react')
 const STORE = require('./store.js')
 const ACTIONS = require('./actions.js')
+
+
 const OopsView = require('./oops-view.js')
 const AuthView = require('./auth-view.js')
 const MultiView = require('./multi-view.js')
 const SingleView = require('./single-view.js')
-
 const {InventoryModel} = require('./models.js')
+
 
 
 
@@ -22,16 +24,20 @@ const AppViewController = React.createClass({
    },
 
   componentWillMount: function(){
-    let self = this
+    let component = this
+
+    // let updateState = STORE.getStoreData()
+    // // console.log( "the retrieved data:" ,updateState.currentInventory)
+    // self.setState({currentInventory: updateState.currentInventory})
 
 
     STORE.onChange(function(){
-        let updateState = STORE.getStoreData()
-        console.log( "the retrieved data:" ,updateState.currentInventory)
-        self.setState(updateState)
+        let updatedState = STORE.getStoreData()
+        // console.log( "the retrieved data:" ,updateState.currentInventory)
+        component.setState(updatedState)
+
+
     })
-
-
   },
 
 
@@ -44,7 +50,7 @@ const AppViewController = React.createClass({
 
       case "MultiView":
 
-        console.log("rendering multiview")
+        // console.log("rendering multiview")
         return <MultiView payloadData={this.state.currentInventory}/>
         break;
 
@@ -53,8 +59,9 @@ const AppViewController = React.createClass({
           break;
 
       case "OopsView":
-         return <OopsView/>
-         break;
+          return <OopsView/>
+          break;
+
     }
   }
 })

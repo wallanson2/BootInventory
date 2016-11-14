@@ -82,6 +82,12 @@ body{
 
 }
 
+.thumbnail-container-single {
+
+	background: #D35400;
+
+}
+
 .inv-input-container {
 	margin-top: 50px;
 
@@ -91,6 +97,19 @@ body{
 	margin-left: 35%;
 }
 
-.note-to-self {
+.single-header {
+	font-size: 100px;
 	text-align: center;
+}
+
+.oops-header {
+	font-size: 200px;
+	color: chartreuse;
+	text-align: center;
+}
+
+.oops-comment {
+	font-size: 75;
+	color: #ff00ff;
+	text-align: center
 }
