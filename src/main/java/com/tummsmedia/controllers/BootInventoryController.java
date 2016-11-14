@@ -145,5 +145,16 @@ public class BootInventoryController {
         User u = users.findFirstByUsername(targetUser);
         return new ResponseEntity<Iterable<Boot>> (boots.findByUser(u), HttpStatus.OK);
     }
+    @RequestMapping(method = RequestMethod.DELETE, path = "/delete-boot/{id}")
+    public ResponseEntity<Boot> deleteBoot(@PathVariable("id")int id, HttpSession session) throws Exception {
+        String name = (String) session.getAttribute("username");
+        User user = users.findFirstByUsername(name);
+        if (user == null) {
+            return new ResponseEntity(HttpStatus.FORBIDDEN);
+        }
+        boots.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+
+    }
 
 }
