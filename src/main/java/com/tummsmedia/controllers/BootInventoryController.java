@@ -48,9 +48,6 @@ public class BootInventoryController {
             loadDummyData();
         }
     }
-
-
-
     @PreDestroy
     public void destroy() {
         h2.stop();
