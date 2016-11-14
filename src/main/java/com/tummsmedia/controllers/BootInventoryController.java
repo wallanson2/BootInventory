@@ -128,7 +128,7 @@ public class BootInventoryController {
         if (user == null) {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
         }
-        boot.setQuantity(boot.getQuantity() + 1);
+//        boot.setQuantity(boot.getQuantity() + 1);
 //        Boot b = new Boot(boot.getBootName(), boot.getDescription(), boot.getStyle(), boot.getPrice(), user, boot.getImage(), boot.getQuantity());
         boots.save(boot);
         return new ResponseEntity<Boot>(boot, HttpStatus.OK);
