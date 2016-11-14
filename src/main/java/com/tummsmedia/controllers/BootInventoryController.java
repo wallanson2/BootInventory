@@ -153,6 +153,7 @@ public class BootInventoryController {
         boots.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
 
+
     }
 
 }
