@@ -15,11 +15,11 @@ const STORE = {
 
       this._data[storeProp] = payload
       Backbone.Events.trigger('storeChange')
-      console.log('payload', payload)
+      // console.log('payload', payload)
    },
 
    getStoreData: function(){
-      console.log('get store data', this._data)
+      // console.log('get store data', this._data)
       return this._data
 
    },
