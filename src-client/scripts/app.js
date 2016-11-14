@@ -1,7 +1,7 @@
 const ReactDOM = require('react-dom');
 const React = require('react')
 const Backbone = require('backbone');
-
+const OopsView = require('./oops-view.js')
 const AuthView = require('./auth-view.js')
 const SingleView = require('./single-view.js')
 const MultiView = require('./multi-view.js')
@@ -12,18 +12,15 @@ const AppViewController = require('./component-viewcontroller.js')
 const AppRouter = Backbone.Router.extend({
 
     routes: {
-<<<<<<< HEAD
+      "oops" : "showOopsView",
       "singleview/:id" : "showSingleView",
-=======
-      "singleview" : "showSingleView"
->>>>>>> 724bdf3b660d73a93555c1a39d79cd7e4da72d91
       "multiview" : "showMultiView",
       "*path" : "showAuthView"
 
     },
 
-    showSingleView: function(){
-      ReactDOM.render( <AppViewController routedFrom="SingleView" />, document.querySelector('#app-container') )
+    showSingleView: function(pid){
+      ReactDOM.render( <AppViewController routedFrom="SingleView" pidInRoute={pid} />, document.querySelector('#app-container') )
     },
 
     showMultiView: function(){
@@ -33,21 +30,14 @@ const AppRouter = Backbone.Router.extend({
     showAuthView: function(){
       ReactDOM.render(<AppViewController routedFrom="AuthView"/>, document.querySelector('#app-container') )
 
-
-
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 724bdf3b660d73a93555c1a39d79cd7e4da72d91
     console.log("hi")
 
   },
 
-  showSingleView: function(){
-    ReactDOM.render(<AppViewController routedFrom="SingleView"/>, document.querySelector('#app-container') ))
-  }
+  showOopsView: function(){
+  ReactDOM.render(<AppViewController routedFrom="OopsView"/>, document.querySelector('#app-container') )
+},
+
 
 
   initialize: function() {

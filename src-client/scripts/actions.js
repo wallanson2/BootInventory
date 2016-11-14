@@ -1,15 +1,7 @@
 const Backbone = require('backbone')
 const STORE = require('./store.js')
 const UserModel= require('./model-user.js')
-const {InventoryModel, InventoryCollection} = require('./models.js')
-<<<<<<< HEAD
-
-
-
-
-
-=======
->>>>>>> 724bdf3b660d73a93555c1a39d79cd7e4da72d91
+const {InventoryModel, InventoryCollection, SingleModel} = require('./models.js')
 
 const ACTIONS = {
   authenticateUser: function(userDataObj){
@@ -35,38 +27,36 @@ const ACTIONS = {
 
   },
 
-
-<<<<<<< HEAD
-  addInventoryItem: function(){
-    //console.log('trying to add')
-=======
-  _addItem: function(){
-    console.log('trying to add')
->>>>>>> 724bdf3b660d73a93555c1a39d79cd7e4da72d91
-    let addCount = new this.props.attributes.quantity
-    //console.log(addCount)
-    addCount = addCount + 1
-
-<<<<<<< HEAD
-=======
-  },
-    
-  addInventoryItem: function(){
-    console.log('trying to add', this.props.attributes.quantity)
-    // let addCount = new this.props.attributes.quantity
-    // console.log(addCount)
-    // addCount = addCount + 1
->>>>>>> 724bdf3b660d73a93555c1a39d79cd7e4da72d91
-  },
-
-  subtractInventoryItem: function(){
-     //console.log('trying to subtract')
-     let subtractCount = new this.props.attributes.quantity
-     //console.log(subtractCount)
-     subtractCount = subtractCount - 1
-
+  fetchInventoryModel: function(pid){
+     const singleMod = new InventoryModel()
+     singleMod.set({id:pid})
+     singleMod.fetch().then(function(){
+        console.log('returned single mod' ,singleMod)
+        STORE.setStore('singleListing', singleMod)
+     })
  },
 
+
+  changeQuantity: function(objAttributes, qty){
+    console.log('trying to add')
+    objAttributes.quantity += qty
+    let mod = new InventoryModel()
+    mod.set(objAttributes)
+
+    mod.url = "/edit-boot"
+    let saveOptions = { type: 'POST'}
+    mod.save(null, saveOptions).then(function(){
+      STORE.setStore('singleListing', mod)
+   })
+
+  },
+
+  _subtractItem: function(){
+     console.log('trying to subtract')
+     let subtractCount = new this.props.attributes.quantity
+     console.log(subtractCount)
+     subtractCount = subtractCount - 1
+ },
 
 
 }

@@ -16,8 +16,8 @@ const MultiView = React.createClass({
 
   },
 
-<<<<<<< HEAD
-=======
+
+
 
 
 
@@ -31,7 +31,7 @@ const MultiView = React.createClass({
 
 
 
->>>>>>> 724bdf3b660d73a93555c1a39d79cd7e4da72d91
+
   render: function(){
      let self = this
 
@@ -40,7 +40,7 @@ const MultiView = React.createClass({
       return(
 
 
-<<<<<<< HEAD
+
             <div className="col-xs-4  col-md-4" key={data.cid}>
                  <div className="thumbnail thumbnail-container">
                    <img src={"images/" + data.attributes.image} alt="" data-id={data.cid}/>
@@ -49,16 +49,8 @@ const MultiView = React.createClass({
                    <p>Quantity: {data.attributes.quantity}</p>
                  </div>
                </div>
-=======
-            <div className="col-xs-4  col-md-4">
-              <div className="thumbnail thumbnail-container">
-                <img src={"images/" + data.attributes.image} alt="..." data-id={data.cid}/>
-                <h4>{data.attributes.bootName}</h4>
-                <p>Price: {data.attributes.price}</p>
-                <p>Quantity: {data.attributes.quantity}</p>
-              </div>
-            </div>
->>>>>>> 724bdf3b660d73a93555c1a39d79cd7e4da72d91
+
+
       )
     })
 // {data.imgasdfasd}
