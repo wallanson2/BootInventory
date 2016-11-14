@@ -1,20 +1,3 @@
-
-// const Backbone = require('backbone')
-// const React = require('react')
-// const ACTIONS = require('./actions.js')
-//
-// const MultiView = React.createClass({
-//    _handleBootData: function(evt){
-//       evt.preventDefault()
-//
-//       let bootData = {
-//
-//       },
-//    }
-// })
-//
-// module.exports = MultiView
-
 const React = require('react')
 const ReactDOM = require('react-dom')
 
@@ -26,12 +9,13 @@ const MultiView = React.createClass({
   componentWillMount: function(){
     ACTIONS.fetchInventoryCollection()
 
-    // console.log( "lets see" ,STORE._data.currentInventory)
   },
 
-  _itemSelector: function() {
+  // _itemSelector: function() {
+  //   location.hash = './singleview',
+  //   idAttribute = 'id'
+  // },
 
-  },
 
   // _addItem: function() {
   //   ACTIONS.addInventoryItem()
@@ -41,26 +25,31 @@ const MultiView = React.createClass({
   //
   // },
 
-  render: function(){
 
-    var bootListings = this.props.payloadData.map(function(data){
-      console.log(data.attributes.image)
+  render: function(){
+     let self = this
+    //
+    // var bootListings = this.props.payloadData.map(function(data){
+    //   console.log(data.attributes.image)
+    //   return(
+
+    var bootListings = this.props.payloadData.map(function(data, i){
       return(
-            <div className="col-xs-4  col-md-4">
-              <div className="thumbnail thumbnail-container">
-                <a href="./#singleview">
-                  <img src={"images/" + data.attributes.image} alt="..." data-id={data.cid}/>
-                </a>
-                <h4>{data.attributes.bootName}</h4>
-                <p>Price: {data.attributes.price}</p>
-                <p>Quantity: {data.attributes.quantity}</p>
-              </div>
+          <div>
+            <div className="col-xs-4  col-md-4" key={data.cid}>
+                 <div className="thumbnail thumbnail-container">
+                   <img src={"images/" + data.attributes.image} alt="" data-id={data.cid}/>
+                   <h4>{data.attributes.bootName}</h4>
+                   <p>Price: {data.attributes.price}</p>
+                   <p>Quantity: {data.attributes.quantity}</p>
+                 </div>
             </div>
+          </div>
       )
     })
 
-    console.log(  "BABAM SUCESS MOTHER F'er"  ,this.props.payloadData)
-    console.log("hey this is the data here super long so i can see it",bootListings)
+   // console.log(  "BABAM SUCESS MOTHER F'er"  ,this.props.payloadData)
+   // console.log("hey this is the data here super long so i can see it",bootListings)
     return (
       <div className="multi-container">
         <h1 className="multi-header">BootHaus</h1>
@@ -72,6 +61,7 @@ const MultiView = React.createClass({
           </div>
         </div>
       </div>
+
     )
   }
 

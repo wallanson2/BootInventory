@@ -16,13 +16,13 @@ const AppViewController = React.createClass({
     let self = this
 
     let updateState = STORE.getStoreData()
-    console.log( "the retrieved data:" ,updateState.currentInventory)
+    // console.log( "the retrieved data:" ,updateState.currentInventory)
     self.setState({currentInventory: updateState.currentInventory})
 
 
     STORE.onChange(function(){
         let updateState = STORE.getStoreData()
-        console.log( "the retrieved data:" ,updateState.currentInventory)
+        // console.log( "the retrieved data:" ,updateState.currentInventory)
         self.setState({currentInventory: updateState.currentInventory})
     })
   },
@@ -37,7 +37,7 @@ const AppViewController = React.createClass({
 
       case "MultiView":
 
-        console.log("rendering multiview")
+        // console.log("rendering multiview")
         return <MultiView payloadData={this.state.currentInventory}/>
         break;
 
