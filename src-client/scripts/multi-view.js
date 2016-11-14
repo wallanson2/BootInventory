@@ -11,40 +11,32 @@ const MultiView = React.createClass({
 
   },
 
-  // _itemSelector: function() {
-  //   location.hash = './singleview',
-  //   idAttribute = 'id'
-  // },
+
+  _itemSelector: function() {
 
 
-  // _addItem: function() {
-  //   ACTIONS.addInventoryItem()
-  // },
-  //
-  // _subtractItem: function() {
-  //
-  // },
+  },
 
 
   render: function(){
      let self = this
-    //
-    // var bootListings = this.props.payloadData.map(function(data){
     //   console.log(data.attributes.image)
-    //   return(
+
 
     var bootListings = this.props.payloadData.map(function(data, i){
       return(
-          <div>
+
             <div className="col-xs-4  col-md-4" key={data.cid}>
-                 <div className="thumbnail thumbnail-container">
-                   <img src={"images/" + data.attributes.image} alt="" data-id={data.cid}/>
-                   <h4>{data.attributes.bootName}</h4>
-                   <p>Price: {data.attributes.price}</p>
-                   <p>Quantity: {data.attributes.quantity}</p>
-                 </div>
+                <div className="thumbnail thumbnail-container">
+                  <a href={"./#singleview/"+data.id} className="anchor-to-single">
+                    <img src={"images/" + data.attributes.image} alt="" data-id={data.cid} />
+                  </a>
+                  <h4>{data.attributes.bootName}</h4>
+                  <p>Price: {data.attributes.price}</p>
+                  <p>Quantity: {data.attributes.quantity}</p>
+                </div>
             </div>
-          </div>
+
       )
     })
 

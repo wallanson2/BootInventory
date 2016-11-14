@@ -2,28 +2,41 @@ const React = require('react')
 const STORE = require('./store.js')
 const ACTIONS = require('./actions.js')
 
+
+const OopsView = require('./oops-view.js')
 const AuthView = require('./auth-view.js')
 const MultiView = require('./multi-view.js')
 const SingleView = require('./single-view.js')
-const OopsView = require('./oops-view.js')
+const {InventoryModel} = require('./models.js')
+
 
 
 
 const AppViewController = React.createClass({
 
+   getInitialState: function(){
+      let updateState = STORE.getStoreData()
+      console.log( "the retrieved data:" ,updateState.currentInventory)
+      STORE.setStore('currentInventory', updateState.currentInventory)
+      STORE.setStore('singleListing', new InventoryModel())
+
+      return STORE.getStoreData()
+   },
 
   componentWillMount: function(){
-    let self = this
+    let component = this
 
-    let updateState = STORE.getStoreData()
-    // console.log( "the retrieved data:" ,updateState.currentInventory)
-    self.setState({currentInventory: updateState.currentInventory})
+    // let updateState = STORE.getStoreData()
+    // // console.log( "the retrieved data:" ,updateState.currentInventory)
+    // self.setState({currentInventory: updateState.currentInventory})
 
 
     STORE.onChange(function(){
-        let updateState = STORE.getStoreData()
+        let updatedState = STORE.getStoreData()
         // console.log( "the retrieved data:" ,updateState.currentInventory)
-        self.setState({currentInventory: updateState.currentInventory})
+        component.setState(updatedState)
+
+
     })
   },
 
@@ -42,12 +55,13 @@ const AppViewController = React.createClass({
         break;
 
       case "SingleView":
-          return <SingleView />
+          return <SingleView singleData={this.state.singleListing} pidVal={this.props.pidInRoute} />
           break;
 
       case "OopsView":
           return <OopsView/>
           break;
+
     }
   }
 })
