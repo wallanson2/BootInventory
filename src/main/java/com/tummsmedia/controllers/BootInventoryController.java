@@ -128,8 +128,9 @@ public class BootInventoryController {
         if (user == null) {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
         }
-        Boot b = new Boot(boot.getBootName(), boot.getDescription(), boot.getStyle(), boot.getPrice(), user, boot.getImage(), boot.getQuantity());
-        boots.save(b);
+        boot.setQuantity(boot.getQuantity() + 1);
+//        Boot b = new Boot(boot.getBootName(), boot.getDescription(), boot.getStyle(), boot.getPrice(), user, boot.getImage(), boot.getQuantity());
+        boots.save(boot);
         return new ResponseEntity<Boot>(boot, HttpStatus.OK);
     }
     @RequestMapping(method = RequestMethod.GET, path = "/{username}/list-by-user.json")
