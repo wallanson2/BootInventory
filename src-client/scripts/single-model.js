@@ -1,7 +1,7 @@
 const Backbone = require('backbone')
 
 const SingleModel = Backbone.Model.extend({
-  url: "/get-boot",
+  urlRoot: "/get-boot",
   idAttribute: 'id',
 
   initialize: function(){

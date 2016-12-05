@@ -34,7 +34,7 @@ const AppViewController = React.createClass({
     STORE.onChange(function(){
         let updatedState = STORE.getStoreData()
         // console.log( "the retrieved data:" ,updateState.currentInventory)
-        component.setState(updatedState)
+        component.setState(updatedStat)
 
 
     })

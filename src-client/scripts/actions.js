@@ -1,5 +1,5 @@
 const Backbone = require('backbone')
-
+// const AuthView = require('./auth-view.js')
 const STORE = require('./store.js')
 const UserModel= require('./model-user.js')
 const OopsView = require('./oops-view.js')
@@ -44,7 +44,7 @@ const ACTIONS = {
 
 
 
-  // 
+  //
   // addInventoryItem: function(){
   //   //console.log('trying to add')
   // },
